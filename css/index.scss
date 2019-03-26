@@ -1,0 +1,146 @@
+@import "variables";
+
+*{
+    margin:0;
+}
+
+body{
+    background: #5497d0;
+}
+
+#despPopUp{
+    margin: 50px;
+}
+
+.abrirPopUp.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+.abrirPopUp{
+    opacity: 0;
+    visibility: hidden;
+    transition: .4s;
+    
+
+    .fondoNegro{
+        background: rgba(0,0,0,.9);
+        width:100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+    
+    }
+
+    .popUp{
+        background: white;
+        border: solid 1px $gris;
+        border-radius: 5px;
+        padding: 1em;
+        width: 50%;
+        margin: auto;
+        padding: 2em;
+    
+        position:fixed;
+        top:50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        transition: .3s;
+    
+        #close{
+            /* border: solid 1px grey; */
+            padding: .5em 1em;
+            margin: -29px;
+            border-radius: 0 5px 0 0;
+            transition: .2s;
+
+            &:hover{
+                background: $salir;
+                color: white;
+            }
+        }
+        
+        .cuerpo{
+
+            .title{
+                h3{
+                    color: $naranja;
+                    font-weight: bold;
+                    margin: 0;
+                }
+                p{
+                    font-weight: bold;
+                }
+            } 
+            
+            .inputLoc{
+                margin:0;
+                margin-top: 2em;
+
+                .form-label {
+                    padding: 0;
+                }                
+                .form-input{
+                    width: 100%;
+                    border-radius: 4px;
+                    padding: .5em;
+                }
+            }
+            
+
+        }
+        
+        .puntosYmapa{
+            margin: auto;
+            width: 100%;
+            background: white;
+
+            .puntos{
+                max-height: 400px;
+                overflow: auto;
+                margin-top: 1.5em;
+
+                .contPuntos{
+                    padding: 1em 0;
+                    transition: .2s;
+
+                    &:nth-child(2n){
+                        background: $gris;
+                    }
+
+                    &:hover{
+                        font-size: 1.2em;
+                    }
+
+                    .infoPuntos p{
+                        margin:0;
+
+                        &:first-child{
+                            font-weight: bold;
+                        }
+                    }
+
+                }
+            }
+            
+            .mapa{
+                margin-top: 1.5em;
+
+                iframe{
+                    width:100%;
+                    height: 400px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .abrirPopUp{
+       .popUp{
+            height: 100vh;
+            width: 100%;
+        }    
+    }
+}
